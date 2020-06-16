@@ -1,9 +1,16 @@
 const express = require('express');
 const router = express.Router({ mergeParams: true }); // mergeParams allows access to id inside this router
 
-const { createMessage } = require('../handlers/messages');
+const {
+  createMessage,
+  getMessage,
+  deleteMessage,
+} = require('../handlers/messages');
 
-// prefix = /api/users/:id/messages
+// Prefix = POST - /api/users/:id/messages
 router.route('/').post(createMessage);
+
+// Prefix = GET/DELETE - /api/users/:id/messages/messageId
+router.route('/:message_id').get(getMessage).delete(deleteMessage);
 
 module.exports = router;
