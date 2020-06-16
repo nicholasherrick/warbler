@@ -27,7 +27,20 @@ export default class AuthForm extends Component {
 
   render() {
     const { email, username, password, profileImageUrl } = this.state;
-    const { heading, buttonText, register } = this.props;
+    const {
+      heading,
+      buttonText,
+      register,
+      errors,
+      history,
+      removeError,
+    } = this.props;
+
+    // Listen for a change in react route
+    history.listen(() => {
+      // If the route changes, remove any error message
+      removeError();
+    });
 
     return (
       <div>
@@ -35,6 +48,9 @@ export default class AuthForm extends Component {
           <div className='col-md-6'>
             <form onSubmit={this.handleSubmit}>
               <h2>{heading}</h2>
+              {errors.message && (
+                <div className='alert alert-danger'>{errors.message}</div>
+              )}
               <label htmlFor='email'>Email</label>
               <input
                 className='form-control'
