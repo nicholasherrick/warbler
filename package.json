@@ -1,0 +1,11 @@
+{
+  "name": "warbler",
+  "version": "1.0.0",
+  "description": "Twitter clone using the MERN stack with Redux and JWTs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicholas Herrick",
+  "license": "ISC"
+}
