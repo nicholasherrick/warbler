@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const errorHandler = require('./handlers/error');
 const authRoutes = require('./routes/authRouter');
 const messagesRoutes = require('./routes/messagesRouter');
+const { loginRequired, ensureCorrectUser } = require('./middleware/auth');
 
 // Set the Port
 const PORT = process.env.PORT || 3001;
@@ -18,7 +19,12 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/users/:id/messages', messagesRoutes);
+app.use(
+  '/api/users/:id/messages',
+  loginRequired,
+  ensureCorrectUser,
+  messagesRoutes
+);
 
 // Logic for requests with incorrect route (404)
 app.use(function (req, res, next) {
