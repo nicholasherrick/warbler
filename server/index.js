@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const errorHandler = require('./handlers/error');
 
 // Set the Port
 const PORT = process.env.PORT || 3001;
@@ -20,6 +21,9 @@ app.use(function (req, res, next) {
   err.status = 404;
   next(err);
 });
+
+// Tell app to use the error handler when triggered by any incoming middleware with an error
+app.use(errorHandler);
 
 // Start the server
 app.listen(PORT, function () {
