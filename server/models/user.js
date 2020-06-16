@@ -20,6 +20,12 @@ const userSchema = new mongoose.Schema({
   profileImageUrl: {
     type: String,
   },
+  messages: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Message',
+    },
+  ],
 });
 
 // Bcrypt hook & hash
