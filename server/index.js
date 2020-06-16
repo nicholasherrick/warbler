@@ -7,6 +7,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const errorHandler = require('./handlers/error');
 const authRoutes = require('./routes/authRouter');
+const messagesRoutes = require('./routes/messagesRouter');
 
 // Set the Port
 const PORT = process.env.PORT || 3001;
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/users/:id/messages', messagesRoutes);
 
 // Logic for requests with incorrect route (404)
 app.use(function (req, res, next) {
