@@ -6,5 +6,6 @@ mongoose.Promise = Promise;
 // Connect to database
 mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
-  useMongoClient: true,
 });
+
+module.exports.User = require('./user');
