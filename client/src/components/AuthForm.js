@@ -17,6 +17,14 @@ export default class AuthForm extends Component {
     });
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const authType = this.props.register ? 'register' : 'login';
+    this.props.onAuth(authType, this.state).then(() => {
+      console.log('Logged in');
+    });
+  };
+
   render() {
     const { email, username, password, profileImageUrl } = this.state;
     const { heading, buttonText, register } = this.props;
@@ -70,6 +78,12 @@ export default class AuthForm extends Component {
                   />
                 </div>
               )}
+              <button
+                type='submit'
+                className='btn btn-primary btn-block btn-lg'
+              >
+                {buttonText}
+              </button>
             </form>
           </div>
         </div>
