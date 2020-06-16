@@ -1,5 +1,7 @@
 import React from 'react';
 import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Homepage from '../components/Homepage';
 
 const Main = (props) => {
   return (
@@ -10,3 +12,12 @@ const Main = (props) => {
     </div>
   );
 };
+
+function mapStateToProps(state) {
+  return {
+    currentUser: state.currentUser,
+  };
+}
+
+// Use Main component after connected to redux store
+export default withRouter(connect(mapStateToProps, null)(Main));
