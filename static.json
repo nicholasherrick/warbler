@@ -1,0 +1,11 @@
+{
+  "root": "built/",
+  "routes": {
+    "/**": "index.html"
+  },
+  "proxies": {
+    "/api": {
+      "origin": "https://warbler-server-nh.herokuapp.com"
+    }
+  }
+}
