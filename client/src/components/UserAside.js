@@ -13,6 +13,7 @@ const UserAside = ({ profileImageUrl, username }) => {
             width='200'
             height='200'
           />
+          <small>@{username}</small>
         </div>
       </div>
     </aside>

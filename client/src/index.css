@@ -80,6 +80,10 @@ ul.nav.navbar-nav li {
   margin: 2px 30px 10px 10px;
 }
 
+.btn {
+  margin-top: 1rem;
+}
+
 .btn:hover {
   cursor: pointer;
 }
