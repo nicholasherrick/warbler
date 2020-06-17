@@ -7,12 +7,17 @@ import { authUser } from '../store/actions/auth';
 import { removeError } from '../store/actions/errors';
 
 const Main = (props) => {
-  const { authUser, errors, removeError } = props;
+  const { authUser, errors, removeError, currentUser } = props;
 
   return (
     <div className='container'>
       <Switch>
-        <Route exact path='/' render={(props) => <Homepage {...props} />} />
+        {/* This route sends currentUser from redux to the Homepage component */}
+        <Route
+          exact
+          path='/'
+          render={(props) => <Homepage currentUser={currentUser} {...props} />}
+        />
         <Route
           exact
           path='/login'
@@ -51,6 +56,7 @@ const Main = (props) => {
   );
 };
 
+// these get passed into ^Main^ as props
 function mapStateToProps(state) {
   return {
     currentUser: state.currentUser,
