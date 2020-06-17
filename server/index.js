@@ -9,7 +9,7 @@ const errorHandler = require('./handlers/error');
 const authRoutes = require('./routes/authRouter');
 const messagesRoutes = require('./routes/messagesRouter');
 const { loginRequired, ensureCorrectUser } = require('./middleware/auth');
-const { db } = require('./models/user');
+const db = require('./models');
 
 // Set the Port
 const PORT = process.env.PORT || 3001;
@@ -28,7 +28,7 @@ app.use(
 );
 
 // Route to show all messages to a logged in user
-app.use('/api/messages', loginRequired, async function (req, res, next) {
+app.get('/api/messages', loginRequired, async function (req, res, next) {
   try {
     let messages = await db.Message.find()
       .sort({ createdAt: 'desc' })
