@@ -1,6 +1,6 @@
 # Warbler (twitter clone)
 
-Warbler is a browser based web application that allows users to sign up and create messages on a global timeline that all users can see and respond to. This app uses a robust modern code base with the MERN stack that is built to be easily scalable.
+Warbler is a browser based web application that allows users to sign up and create and edit messages on a global timeline that all users can see and respond to. This app uses a robust modern code base with the MERN stack that is built to be easily scalable.
 
 ![Screenshot1](./warbler.jpg)
 
