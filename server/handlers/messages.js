@@ -43,3 +43,17 @@ exports.deleteMessage = async function (req, res, next) {
     return next(err);
   }
 };
+
+// Prefix = PUT = /api/users/:id/messages/:message_id
+exports.editMessage = async function (req, res, next) {
+  try {
+    let foundMessage = await db.Message.findByIdAndUpdate(
+      req.params.message_id,
+      req.body
+    );
+    foundMessage.save();
+    return res.status(200).json(foundMessage);
+  } catch (err) {
+    return next(err);
+  }
+};
