@@ -82,6 +82,7 @@ ul.nav.navbar-nav li {
 
 .btn {
   margin-top: 1rem;
+  margin-right: 0.5rem;
 }
 
 .btn:hover {
@@ -89,6 +90,7 @@ ul.nav.navbar-nav li {
 }
 
 a.btn.btn-danger,
+a.btn.btn-warning,
 a.btn-btn-danger:hover {
   color: white;
 }

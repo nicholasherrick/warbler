@@ -1,4 +1,4 @@
-import { LOAD_MESSAGES, REMOVE_MESSAGE } from '../actionTypes';
+import { LOAD_MESSAGES, REMOVE_MESSAGE, EDIT_MESSAGE } from '../actionTypes';
 
 const message = (state = [], action) => {
   switch (action.type) {
@@ -6,6 +6,8 @@ const message = (state = [], action) => {
       return [...action.messages];
     case REMOVE_MESSAGE:
       return state.filter((message) => message._id !== action.id);
+    case EDIT_MESSAGE:
+      return [...action.messages];
     default:
       return state;
   }
